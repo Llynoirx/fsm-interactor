@@ -44,6 +44,7 @@
         <li><a href="#contributors">Contributors</a></li>
       </ul>
      <li><a href="#contact">Contact</a></li>
+    <li><a href="#Related Projects">Related Projects</a></li>
   </ol>
 </details>
 
@@ -157,7 +158,7 @@
 * Email: hokathyd@gmail.com
 * Linkedin: https://www.linkedin.com/in/hokathyd/
 
-### More Products 
+## Related Projects 
 * 05-431 | SSUI Project 1 - Fitts Law Tester
 * 05-431 | SSUI Project 2 - UI Renderer
 
