@@ -119,11 +119,11 @@
     - [x] set x
     - [x] set y
     - [x] set parent
-    - [] damage()
-    - [] draw()
-    - [] pick()
-    - [] bookkeeping for displayRawEvent()
-    - [] displayRawEvent()
+    - [ ] damage()
+    - [ ] draw()
+    - [ ] pick()
+    - [ ] bookkeeping for displayRawEvent()
+    - [ ] displayRawEvent()
 * src/Region.ts
 * src/Root.ts
 * src/State.ts
@@ -140,8 +140,8 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 ### Contributors
 * Kathy Ho | Student at Carnegie Mellon University (CMU)
-* Scott Hudson | Professor at CMU's Human Computer Interaction Institute (HCII): 05-431
-* Frank Elavsky | Teaching Assistant: 05-431
+* Scott Hudson | Professor at CMU's Human Computer Interaction Institute (HCII) for 05-431
+* Frank Elavsky | Teaching Assistant for 05-431
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -22,8 +22,8 @@ import { Err } from "./Err.js";
 // Class for an interactive object controlled by a finite state machine (FSM).
 // Objects of this class have a position on the screen (the location of their top-left
 // corner within the HTML canvas object associated with thier parent (Root) object), 
-// Along with an FSM object which specifies, and partially imlements, their behavior.
-// This class is repsonsible for using the FSM object to draw all the current region 
+// Along with an FSM object which specifies, and partially implements, their behavior.
+// This class is responsible for using the FSM object to draw all the current region 
 // images within the FSM, and for dispatching events to the FSM to drive its behavior.
 // Note that this object has a position, but not an explicit size, and that no clipping
 // of its output is being done.  Regions within the FSM are positioned in the coordinate
@@ -58,6 +58,7 @@ export class FSMInteractor {
     public set x(v : number) {
           
         // **** YOUR CODE HERE ****
+        this._x = v;
     }
 
     // Y position (top) of this object within the parent Root object (and containing 
@@ -67,6 +68,7 @@ export class FSMInteractor {
     public set y(v : number) {
             
         // **** YOUR CODE HERE ****
+        this._y = v;
     }
 
     // Position treated as a single value
@@ -91,6 +93,7 @@ export class FSMInteractor {
     public set parent(v : Root | undefined) {
             
         // **** YOUR CODE HERE ****
+        if(!v) this._parent = v;
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
