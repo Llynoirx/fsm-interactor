@@ -41,7 +41,7 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
      <ul>
-        <li><a href="#contributers">Contributers</a></li>
+        <li><a href="#contributors">Contributors</a></li>
       </ul>
      <li><a href="#contact">Contact</a></li>
   </ol>
@@ -114,14 +114,16 @@
 * src/EventSpec.ts
 * src/FSM.ts
 * src/FSMInteractor.ts
-  - FSMInteractor class: {fsm object, position, parent/root}; update/draw display for obj
+  - FSMInteractor class: {fsm object, position, parent/root}; update/draw display for obj; determine list of regions in our controlling FSM; translate raw events into higher-levels ones formulated in terms of regions of FSM 
   - TODOS:
     - [x] set x
     - [x] set y
     - [x] set parent
-    - [] damage
-    - [] draw
-    - [] pick
+    - [] damage()
+    - [] draw()
+    - [] pick()
+    - [] bookkeeping for displayRawEvent()
+    - [] displayRawEvent()
 * src/Region.ts
 * src/Root.ts
 * src/State.ts
