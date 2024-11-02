@@ -11,8 +11,8 @@
 
 <!-- HEADER -->
 <br />
-  <h1 align="center">[Insert Project Name Here]</h1>
-  <p align="center">[Insert Brief Description Here]
+  <h1 align="center">FSM-Interactors</h1>
+  <p align="center">Build FSM-based (Finite State Machine) Interactor objects
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
    </p>
@@ -40,6 +40,9 @@
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
+     <ul>
+        <li><a href="#contributers">Contributers</a></li>
+      </ul>
      <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -105,10 +108,26 @@
 
 <!-- ROADMAP -->
 ## Roadmap
+* src/Action.ts
+* src/Check.ts
+* src/Err.ts
+* src/EventSpec.ts
+* src/FSM.ts
+* src/FSMInteractor.ts
+  - FSMInteractor class: {fsm object, position, parent/root}; update/draw display for obj
+  - TODOS:
+    - [x] set x
+    - [x] set y
+    - [x] set parent
+    - [] damage
+    - [] draw
+    - [] pick
+* src/Region.ts
+* src/Root.ts
+* src/State.ts
+* src/test_cases.ts
+* src/Transition.ts
 
-- [x] [insert task]
-- [x] [insert task]
-- [ ] [insert task]
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
@@ -116,9 +135,11 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 
 
 ## Acknowledgements
-*
-*
-*
+
+### Contributors
+* Kathy Ho | Student at Carnegie Mellon University (CMU)
+* Scott Hudson | Professor at CMU's Human Computer Interaction Institute (HCII): 05-431
+* Frank Elavsky | Teaching Assistant: 05-431
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
