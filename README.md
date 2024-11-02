@@ -113,17 +113,25 @@
 * src/Err.ts
 * src/EventSpec.ts
 * src/FSM.ts
+  - FSM class: machine that consists of:
+    1. list of regions: area (bounding box) within parent FSMInteractor, img
+    2. list of states: stateName, list of transitions out of state- eventSpec obj which describes what events will cause event to fire, target state, list of actions to be executed when transition taken
+  - TODOS: 
+    - [ ] damage()
+    - [ ] _finalize(): Initially set up and connect various parts making up FSM (ie. looking up region, state names, linking/binding corresponding objs)
+    - [ ] reset(): Reset FSM to start state. 
+    - [ ] actOnEvent(): Cause FSM to act on given event (make one transition)
 * src/FSMInteractor.ts
-  - FSMInteractor class: {fsm object, position, parent/root}; update/draw display for obj; determine list of regions in our controlling FSM; translate raw events into higher-levels ones formulated in terms of regions of FSM 
+  - FSMInteractor class: {fsm object, position, parent/root}
   - TODOS:
     - [x] set x
     - [x] set y
     - [x] set parent
-    - [ ] damage()
+    - [ ] damage(): update display for obj
     - [ ] draw()
-    - [ ] pick()
+    - [ ] pick(): determine list of regions in our controlling FSM
     - [ ] bookkeeping for displayRawEvent()
-    - [ ] displayRawEvent()
+    - [ ] displayRawEvent():  translate raw events into higher-levels ones formulated in terms of regions of FSM 
 * src/Region.ts
 * src/Root.ts
 * src/State.ts
