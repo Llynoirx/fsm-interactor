@@ -51,7 +51,7 @@
 
 <!-- PROJECT OVERVIEW -->
 ## Project Overview:
-[![Product Name Gif][product-screenshot]](https://example.com)
+<!-- [![Product Name Gif][product-screenshot]](https://example.com) -->
 
 ### Background:
 *
@@ -139,7 +139,7 @@
 * src/Transition.ts
 
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+<!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,8 +154,12 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
+* Email: hokathyd@gmail.com
+* Linkedin: https://www.linkedin.com/in/hokathyd/
 
-### More Products
+### More Products 
+* 05-431 | SSUI Project 1 - Fitts Law Tester
+* 05-431 | SSUI Project 2 - UI Renderer
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
