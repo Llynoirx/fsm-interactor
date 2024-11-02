@@ -35,11 +35,11 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#how-to-run">How to Run</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
      <ul>
         <li><a href="#contributors">Contributors</a></li>
       </ul>
@@ -79,30 +79,24 @@
 ## Getting Started
 
 ### Prerequisites
-* npm
+* Install webserver
   ```sh
-  npm install npm@latest -g
+  npm install express
   ```
 
-### Installation
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+### How to Run
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/llynoirx/fsm-interactor.git
    ```
-3. Install NPM packages
+3. Transpile all .ts to .js and .js.map files
    ```sh
-   npm install
+   tsc
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+4. Navigate to Debug and Run Panel in VSCode
+5. Activate web server in VSCode by clicking 'Launch Local Web Server on port 8080' then click 'Start Debugging (F5)'
+6. Activate the project in Chrome by clicking 'Launch in Chrome Browser' then click 'Start Debugging (F5)'
+- This should launch a Chrome browser window running test cases from src/test_cases.ts
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
