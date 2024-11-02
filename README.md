@@ -14,7 +14,7 @@
   <h1 align="center">FSM-Interactors</h1>
   <p align="center">Build FSM-based (Finite State Machine) Interactor objects
     <br />
-    <a href="https://github.com/hokathyd/fsm-interactor"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/llynoirx/fsm-interactor"><strong>Explore the docs »</strong></a>
    </p>
 </div>
 
