@@ -167,7 +167,7 @@ export class FSM {
     public damage() : void {
             
         // **** YOUR CODE HERE ****
-
+        this.parent?.damage();
     }
 
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -180,16 +180,21 @@ export class FSM {
         // names we need to look up / bind are found in transitions: in named target 
         // state, region names in event specs, and region names in actions.
         // walk over all the transitions in all the states to get those bound
-            
         // **** YOUR CODE HERE ****
+        for (let state of this.states){
+            for (let trans of state.transitions){
+                trans.bindTarget(this._states);
+                for (let action of trans.actions) action.bindRegion(this._regions);
+            }
+        }
 
         // start state is the first one
-            
         // **** YOUR CODE HERE ****
+        this._startState = this._states[0];
 
         // need to link all regions back to this object as their parent
-            
         // **** YOUR CODE HERE ****
+        for (let region of this._regions) region.parent = this
 
     }
     
@@ -200,6 +205,7 @@ export class FSM {
     public reset() {
             
         // **** YOUR CODE HERE ****
+        this._currentState = this._startState;
     }
     
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -215,6 +221,15 @@ export class FSM {
         if (!this.currentState) return;
            
         // **** YOUR CODE HERE ****
+        for(let trans of this.currentState.transitions){
+            // for the 1st transition matching event, we execute action,
+            // move to indicated state, and no additional transitions considered
+            if(trans.match(evtType, reg)){
+                for(let action of trans.actions) action.execute(evtType,reg);
+                this._currentState = trans.target;
+                return; 
+            }
+        }
 
     }
       

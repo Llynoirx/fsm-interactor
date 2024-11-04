@@ -88,7 +88,9 @@ export class FSM {
     // object, eventually causing a redraw to be performed.  
     // 
     damage() {
+        var _a;
         // **** YOUR CODE HERE ****
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.damage();
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
     // Do connecting and other bookkeeping to initially set up and connect the 

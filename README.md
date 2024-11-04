@@ -148,10 +148,10 @@
     1. list of regions: area (bounding box) within parent FSMInteractor, img
     2. list of states: stateName, list of transitions out of state- eventSpec obj which describes what events will cause event to fire, target state, list of actions to be executed when transition taken
   - TODOS: 
-    - [ ] damage()
-    - [ ] _finalize(): Initially set up and connect various parts making up FSM (ie. looking up region, state names, linking/binding corresponding objs)
-    - [ ] reset(): Reset FSM to start state. 
-    - [ ] actOnEvent(): Cause FSM to act on given event (make one transition)
+    - [x] damage()
+    - [x] _finalize(): Initially set up and connect various parts making up FSM (ie. looking up region, state names, linking/binding corresponding objs)
+    - [x] reset(): Reset FSM to start state. 
+    - [x] actOnEvent(): Cause FSM to act on given event (make one transition)
 * src/Root.ts
     - class for root obj which manages connection w/ canvas and does other global tasks like redraws
     - TODO: 

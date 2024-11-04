@@ -48,18 +48,30 @@ export class Region {
     get x() { return this._x; }
     set x(v) {
         // **** YOUR CODE HERE ****
+        if (this._x !== v) {
+            this._x = v;
+        }
     }
     get y() { return this._y; }
     set y(v) {
         // **** YOUR CODE HERE ****
+        if (this._y !== v) {
+            this._y = v;
+        }
     }
     get w() { return this._w; }
     set w(v) {
         // **** YOUR CODE HERE ****
+        if (this._w !== v) {
+            this._w = v;
+        }
     }
     get h() { return this._h; }
     set h(v) {
         // **** YOUR CODE HERE ****
+        if (this._h !== v) {
+            this._h = v;
+        }
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
     // Size of this object considered as one value
@@ -77,6 +89,8 @@ export class Region {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
+        if (!v && this._parent !== v)
+            this._parent = v;
     }
     get imageLoc() { return this._imageLoc; }
     set imageLoc(v) {
