@@ -43,8 +43,7 @@ export class Transition {
     // event types and their meaning).
     match(evtType, regn) {
         // **** YOUR CODE HERE ****
-        // **** Remove this, it's just here to get this file to compile
-        return false;
+        return this.onEvent.match(evtType, regn);
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
     // Attempt to look up the name of the target state for this transition and 
@@ -53,6 +52,14 @@ export class Transition {
     // the FSM (in which case an error message will also be generted using Err.emit()).
     bindTarget(stateList) {
         // **** YOUR CODE HERE ****
+        //look up to see if targ name match one of actual states
+        // if so assign to target, else target remains undefined => error message
+        for (let state of stateList) {
+            if (this._targetName === state.name) {
+                this._target = state;
+                return;
+            }
+        }
         // no matching state name, so generate an error message
         Err.emit(`State '${this._targetName}' in transition does not match any state.`);
     }

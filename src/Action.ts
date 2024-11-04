@@ -84,6 +84,26 @@ export class Action {
         if (this._actType === 'none') return;
         
         // **** YOUR CODE HERE ****
+        if (!this._onRegion) Err.emit('no region to carry out action on')
+        else {
+            switch(this._actType) {
+                case 'set_image':
+                    this._onRegion.imageLoc = this.param
+                    break;
+                case 'clear_image':
+                    this._onRegion.imageLoc = "";
+                    break;
+                case 'print':
+                    console.log(this.param);
+                    break;
+                case 'print_event':
+                    console.log(`${this.param}${evtType}(region:${evtReg?.name})`)
+                    break;
+                default:
+                    Err.emit(`${this._actType} does not exist`);
+                    break;
+            }
+        }
     }
 
      //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
