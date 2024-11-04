@@ -19,34 +19,7 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<<<<<<< HEAD
-<strong>TABLE OF CONTENTS</strong>
-<ol>
-  <li>
-    <a href="#project-overview">Project Overview</a>
-    <ul>
-      <li><a href="#background">Background</a></li>
-      <li><a href="#objectives">Objectives</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#built-with">Built With</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#getting-started">Getting Started</a>
-    <ul>
-      <li><a href="#prerequisites">Prerequisites</a></li>
-      <li><a href="#installation">Installation</a></li>
-    </ul>
-  </li>
-  <li><a href="#roadmap">Roadmap</a></li>
-  <li><a href="#acknowledgments">Acknowledgments</a></li>
-    <ul>
-      <li><a href="#contributors">Contributors</a></li>
-    </ul>
-    <li><a href="#contact">Contact</a></li>
-</ol>
 
-=======
 <details>
   <summary><strong>TABLE OF CONTENTS<strong/></summary>
   <ol>
@@ -75,9 +48,6 @@
     <li><a href="#Related Projects">Related Projects</a></li>
   </ol>
 </details>
->>>>>>> 284aec692e28473183c192efb8e91c47c6a3ca91
-
-
 
 <!-- PROJECT OVERVIEW -->
 ## Project Overview:
