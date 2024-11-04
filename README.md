@@ -142,13 +142,14 @@
     - [ ] damage() 
 * src/Transition.ts
     - class for single transition within FSM (eventspec, list of actions, state to move FSM to)
-    - TODO: match(): determine if transition should be matched by given event
-    - bindTarget() 
+    - TODO: 
+    - [ ] match(): determine if transition should be matched by given event
+    - [ ] bindTarget() 
 * src/EventSpec.ts
   - class for objects that need specify event for FSM transition  
   - TODO: 
-    - bindRegion()
-    - match(): match against actual event
+    - [ ] bindRegion()
+    - [ ] match(): match against actual event
 * src/Action.ts
   - class for transition action {act: set_img, clear_img, none, print, print_event, region to act on, param}
   - TODOS:
