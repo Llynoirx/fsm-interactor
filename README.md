@@ -45,7 +45,7 @@
         <li><a href="#contributors">Contributors</a></li>
       </ul>
      <li><a href="#contact">Contact</a></li>
-    <li><a href="#Related Projects">Related Projects</a></li>
+    <li><a href="#related-projects">Related Projects</a></li>
   </ol>
 </details>
 
@@ -88,15 +88,18 @@
    ```sh
    git clone https://github.com/llynoirx/fsm-interactor.git
    ```
-3. Transpile all .ts to .js and .js.map files
+3. Transpile all .ts to .js and .js.map files by typing the following into the terminal:
    ```sh
    tsc
    ```
-4. Navigate to Debug and Run Panel in VSCode
-5. Activate web server in VSCode by clicking 'Launch Local Web Server on port 8080' then click 'Start Debugging (F5)'
-6. Activate the project in Chrome by clicking 'Launch in Chrome Browser' then click 'Start Debugging (F5)'
-- This should launch a Chrome browser window running test cases from src/test_cases.ts
-
+4. Start the server by typing the following into the terminal:
+   ```sh
+   npm run start
+   ```
+5. Open up browser and type:
+   ```sh
+   localhost:80
+   ```
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
