@@ -19,33 +19,32 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary><strong>TABLE OF CONTENTS<strong/></summary>
-  <ol>
-    <li>
-      <a href="#project-overview">Project Overview</a>
-      <ul>
-        <li><a href="#background">Background</a></li>
-        <li><a href="#objectives">Objectives</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-     <ul>
-        <li><a href="#contributors">Contributors</a></li>
-      </ul>
-     <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
+<strong>TABLE OF CONTENTS</strong>
+<ol>
+  <li>
+    <a href="#project-overview">Project Overview</a>
+    <ul>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#objectives">Objectives</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#built-with">Built With</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#getting-started">Getting Started</a>
+    <ul>
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#installation">Installation</a></li>
+    </ul>
+  </li>
+  <li><a href="#roadmap">Roadmap</a></li>
+  <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <ul>
+      <li><a href="#contributors">Contributors</a></li>
+    </ul>
+    <li><a href="#contact">Contact</a></li>
+</ol>
+
 
 
 
@@ -108,19 +107,6 @@
 
 <!-- ROADMAP -->
 ## Roadmap
-* src/Action.ts
-* src/Check.ts
-* src/Err.ts
-* src/EventSpec.ts
-* src/FSM.ts
-  - FSM class: machine that consists of:
-    1. list of regions: area (bounding box) within parent FSMInteractor, img
-    2. list of states: stateName, list of transitions out of state- eventSpec obj which describes what events will cause event to fire, target state, list of actions to be executed when transition taken
-  - TODOS: 
-    - [ ] damage()
-    - [ ] _finalize(): Initially set up and connect various parts making up FSM (ie. looking up region, state names, linking/binding corresponding objs)
-    - [ ] reset(): Reset FSM to start state. 
-    - [ ] actOnEvent(): Cause FSM to act on given event (make one transition)
 * src/FSMInteractor.ts
   - FSMInteractor class: {fsm object, position, parent/root}
   - TODOS:
@@ -132,11 +118,52 @@
     - [ ] pick(): determine list of regions in our controlling FSM
     - [ ] bookkeeping for displayRawEvent()
     - [ ] displayRawEvent():  translate raw events into higher-levels ones formulated in terms of regions of FSM 
-* src/Region.ts
+* src/FSM.ts
+  - FSM class: machine that consists of:
+    1. list of regions: area (bounding box) within parent FSMInteractor, img
+    2. list of states: stateName, list of transitions out of state- eventSpec obj which describes what events will cause event to fire, target state, list of actions to be executed when transition taken
+  - TODOS: 
+    - [ ] damage()
+    - [ ] _finalize(): Initially set up and connect various parts making up FSM (ie. looking up region, state names, linking/binding corresponding objs)
+    - [ ] reset(): Reset FSM to start state. 
+    - [ ] actOnEvent(): Cause FSM to act on given event (make one transition)
 * src/Root.ts
-* src/State.ts
-* src/test_cases.ts
+    - class for root obj which manages connection w/ canvas and does other global tasks like redraws
+    - TODO: 
+      - [ ] _redraw()
+* src/Region.ts
+  - class for region objs {name, bounding-box, img(optional)}
+  - TODOs
+    - [x] set x
+    - [x] set y
+    - [x] set w
+    - [x] set h
+    - [x] set parent
+    - [ ] pick(): determine if position inside or over region
+    - [ ] draw()  
+    - [ ] damage() 
 * src/Transition.ts
+    - class for single transition within FSM (eventspec, list of actions, state to move FSM to)
+    - TODO: match(): determine if transition should be matched by given event
+    - bindTarget() 
+* src/EventSpec.ts
+  - class for objects that need specify event for FSM transition  
+  - TODO: 
+    - bindRegion()
+    - match(): match against actual event
+* src/Action.ts
+  - class for transition action {act: set_img, clear_img, none, print, print_event, region to act on, param}
+  - TODOS:
+    - [ ] execute(): carry out action
+    - [ ] bindRegion(): find region name from FSM list of regions 
+* src/State.ts
+    - class for FSM state obj (name, transition obj list)
+* src/Check.ts
+  - utility class for runtime type checks (objs from json)
+* src/Err.ts
+  - class for error handling: silent, message, full_message, throw
+* src/test_cases.ts
+
 
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).

@@ -58,7 +58,9 @@ export class FSMInteractor {
     public set x(v : number) {
           
         // **** YOUR CODE HERE ****
-        this._x = v;
+        if (this._x!==v){
+            this._x = v;
+        }
     }
 
     // Y position (top) of this object within the parent Root object (and containing 
@@ -68,7 +70,9 @@ export class FSMInteractor {
     public set y(v : number) {
             
         // **** YOUR CODE HERE ****
-        this._y = v;
+        if (this._y!==v){
+            this._y = v;
+        }
     }
 
     // Position treated as a single value
@@ -93,7 +97,7 @@ export class FSMInteractor {
     public set parent(v : Root | undefined) {
             
         // **** YOUR CODE HERE ****
-        if(!v) this._parent = v;
+        if(!v && this._parent!==v) this._parent = v;
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
