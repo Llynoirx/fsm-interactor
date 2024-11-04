@@ -143,8 +143,8 @@
 * src/Transition.ts
     - class for single transition within FSM (eventspec, list of actions, state to move FSM to)
     - TODO: 
-    - [ ] match(): determine if transition should be matched by given event
-    - [ ] bindTarget() 
+    - [x] match(): determine if transition should be matched by given event
+    - [x] bindTarget() 
 * src/EventSpec.ts
   - class for objects that need specify event for FSM transition  
   - TODO: 
@@ -157,7 +157,7 @@
     - [ ] bindRegion(): find region name from FSM list of regions 
 * src/State.ts
     - class for FSM state obj (name, transition obj list)
-* src/Check.ts
+* src/Check.ts..
   - utility class for runtime type checks (objs from json)
 * src/Err.ts
   - class for error handling: silent, message, full_message, throw
