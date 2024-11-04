@@ -145,16 +145,16 @@
     - TODO: 
     - [x] match(): determine if transition should be matched by given event
     - [x] bindTarget() 
+* src/Action.ts
+  - class for transition action {act: set_img, clear_img, none, print, print_event, region to act on, param}
+  - TODOS:
+    - [x] execute(): carry out action
+    - [x] bindRegion(): find region name from FSM list of regions 
 * src/EventSpec.ts
   - class for objects that need specify event for FSM transition  
   - TODO: 
     - [ ] bindRegion()
     - [ ] match(): match against actual event
-* src/Action.ts
-  - class for transition action {act: set_img, clear_img, none, print, print_event, region to act on, param}
-  - TODOS:
-    - [ ] execute(): carry out action
-    - [ ] bindRegion(): find region name from FSM list of regions 
 * src/State.ts
     - class for FSM state obj (name, transition obj list)
 * src/Check.ts..

@@ -85,10 +85,10 @@ export class Action {
         
         // **** YOUR CODE HERE ****
         if (!this._onRegion) Err.emit('no region to carry out action on')
-        else {
+        else { //if there is region to act on, carryout action type
             switch(this._actType) {
                 case 'set_image':
-                    this._onRegion.imageLoc = this.param
+                    this._onRegion.imageLoc = this.param;
                     break;
                 case 'clear_image':
                     this._onRegion.imageLoc = "";
@@ -97,7 +97,7 @@ export class Action {
                     console.log(this.param);
                     break;
                 case 'print_event':
-                    console.log(`${this.param}${evtType}(region:${evtReg?.name})`)
+                    console.log(`${this.param}${evtType}, region:${evtReg?.name}`);
                     break;
                 default:
                     Err.emit(`${this._actType} does not exist`);
@@ -113,6 +113,13 @@ export class Action {
     public bindRegion(regionList : readonly Region[]) : void {
             
         // **** YOUR CODE HERE ****
+        // if find name for region in regionList, assign region object to it
+        for (let region of regionList){
+            if (this._onRegionName === region.name){
+                this._onRegion = region;
+                return;
+            }
+        }
         
         // ok to have no matching region for some actions
         if (this.actType === 'none' || this.actType === 'print' || 
