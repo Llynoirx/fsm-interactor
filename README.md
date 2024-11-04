@@ -14,11 +14,12 @@
   <h1 align="center">FSM-Interactors</h1>
   <p align="center">Build FSM-based (Finite State Machine) Interactor objects
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/llynoirx/fsm-interactor"><strong>Explore the docs »</strong></a>
    </p>
 </div>
 
 <!-- TABLE OF CONTENTS -->
+<<<<<<< HEAD
 <strong>TABLE OF CONTENTS</strong>
 <ol>
   <li>
@@ -45,12 +46,42 @@
     <li><a href="#contact">Contact</a></li>
 </ol>
 
+=======
+<details>
+  <summary><strong>TABLE OF CONTENTS<strong/></summary>
+  <ol>
+    <li>
+      <a href="#project-overview">Project Overview</a>
+      <ul>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#how-to-run">How to Run</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+     <ul>
+        <li><a href="#contributors">Contributors</a></li>
+      </ul>
+     <li><a href="#contact">Contact</a></li>
+    <li><a href="#Related Projects">Related Projects</a></li>
+  </ol>
+</details>
+>>>>>>> 284aec692e28473183c192efb8e91c47c6a3ca91
 
 
 
 <!-- PROJECT OVERVIEW -->
 ## Project Overview:
-[![Product Name Gif][product-screenshot]](https://example.com)
+<!-- [![Product Name Gif][product-screenshot]](https://example.com) -->
 
 ### Background:
 *
@@ -77,30 +108,24 @@
 ## Getting Started
 
 ### Prerequisites
-* npm
+* Install webserver
   ```sh
-  npm install npm@latest -g
+  npm install express
   ```
 
-### Installation
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+### How to Run
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/llynoirx/fsm-interactor.git
    ```
-3. Install NPM packages
+3. Transpile all .ts to .js and .js.map files
    ```sh
-   npm install
+   tsc
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+4. Navigate to Debug and Run Panel in VSCode
+5. Activate web server in VSCode by clicking 'Launch Local Web Server on port 8080' then click 'Start Debugging (F5)'
+6. Activate the project in Chrome by clicking 'Launch in Chrome Browser' then click 'Start Debugging (F5)'
+- This should launch a Chrome browser window running test cases from src/test_cases.ts
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,7 +191,7 @@
 
 
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+<!-- See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues). -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,8 +206,14 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Contact
+* Email: hokathyd@gmail.com
+* Linkedin: https://www.linkedin.com/in/hokathyd/
 
-### More Products
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Related Projects 
+* 05-431 | SSUI Project 1 - Fitts Law Tester
+* 05-431 | SSUI Project 2 - UI Renderer
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
