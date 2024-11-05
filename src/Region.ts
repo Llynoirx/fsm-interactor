@@ -95,6 +95,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._x!==v){
             this._x = v;
+            this.damage();
         }
     }
        
@@ -108,6 +109,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._y!==v){
             this._y = v;
+            this.damage();
         }
     }   
 
@@ -122,6 +124,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._w!==v){
             this._w = v;
+            this.damage();
         }
     }  
 
@@ -136,6 +139,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._h!==v){
             this._h = v;
+            this.damage();
         }
     }  
 
@@ -168,7 +172,10 @@ export class Region {
     public set parent(v : FSM | undefined) {
             
         // **** YOUR CODE HERE ****
-        if(!v && this._parent!==v) this._parent = v;
+        if(this._parent!==v) {
+            this._parent = v;
+            this.damage();
+        }
     }
 
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .

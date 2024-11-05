@@ -60,6 +60,7 @@ export class FSMInteractor {
         // **** YOUR CODE HERE ****
         if (this._x!==v){
             this._x = v;
+            this.damage();
         }
     }
 
@@ -72,6 +73,7 @@ export class FSMInteractor {
         // **** YOUR CODE HERE ****
         if (this._y!==v){
             this._y = v;
+            this.damage();
         }
     }
 
@@ -97,7 +99,10 @@ export class FSMInteractor {
     public set parent(v : Root | undefined) {
             
         // **** YOUR CODE HERE ****
-        if(!v && this._parent!==v) this._parent = v;
+        if(this._parent!==v){
+            this._parent = v;
+            this.damage();
+        } 
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
@@ -118,6 +123,7 @@ export class FSMInteractor {
     public damage() {
            
         // **** YOUR CODE HERE ****
+        this.parent?.damage();
     }
     
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
