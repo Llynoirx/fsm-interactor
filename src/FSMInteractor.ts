@@ -166,6 +166,12 @@ export class FSMInteractor {
         if (!this.fsm) return pickList;
            
         // **** YOUR CODE HERE ****
+        //for every region in FSM, if region contains pt (localX, localY), add to pick list
+        for (let region of this.fsm.regions){
+            if (region.pick(localX, localY)) pickList.push(region);
+        }
+        // picklist ordered in reverse (regions drawn later appear earlier in list)
+        pickList = pickList.reverse();
 
         return pickList;
     }
