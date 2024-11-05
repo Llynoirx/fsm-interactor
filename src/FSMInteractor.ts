@@ -99,7 +99,7 @@ export class FSMInteractor {
     public set parent(v : Root | undefined) {
             
         // **** YOUR CODE HERE ****
-        if(this._parent!==v){
+        if(!v && this._parent!==v){
             this._parent = v;
             this.damage();
         } 
@@ -137,7 +137,17 @@ export class FSMInteractor {
         if (!this.fsm) return;
 
         // **** YOUR CODE HERE ****
+        // for every region in FSM, we first save curr canvas to not affect subsequent drawings,
+        // move into and draw in the region's canvas (also draw debugging frame if showDebugging is true)
+        // then we restore the old canvas for future drawings
+        for (let region of this.fsm.regions){
+            ctx.save();
+            ctx.translate(region.x, region.y);
+            region.draw(ctx, showDebugging);
+            ctx.restore();
+        }
     }   
+
 
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 

@@ -52,6 +52,7 @@ export class FSMInteractor {
         // **** YOUR CODE HERE ****
         if (this._x !== v) {
             this._x = v;
+            this.damage();
         }
     }
     get y() { return this._y; }
@@ -59,6 +60,7 @@ export class FSMInteractor {
         // **** YOUR CODE HERE ****
         if (this._y !== v) {
             this._y = v;
+            this.damage();
         }
     }
     // Position treated as a single value
@@ -76,8 +78,10 @@ export class FSMInteractor {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
-        if (!v && this._parent !== v)
+        if (this._parent !== v) {
             this._parent = v;
+            this.damage();
+        }
     }
     get fsm() { return this._fsm; }
     //-------------------------------------------------------------------
@@ -90,7 +94,9 @@ export class FSMInteractor {
     // regions, etc.  This method passes the damage notification to its hosting Root
     // object which coordinates eventual redraw by calling this object's draw() method.
     damage() {
+        var _a;
         // **** YOUR CODE HERE ****
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.damage();
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     // Draw the display for this object using the given drawing context object.  If the

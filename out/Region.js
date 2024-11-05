@@ -50,6 +50,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._x !== v) {
             this._x = v;
+            this.damage();
         }
     }
     get y() { return this._y; }
@@ -57,6 +58,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._y !== v) {
             this._y = v;
+            this.damage();
         }
     }
     get w() { return this._w; }
@@ -64,6 +66,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._w !== v) {
             this._w = v;
+            this.damage();
         }
     }
     get h() { return this._h; }
@@ -71,6 +74,7 @@ export class Region {
         // **** YOUR CODE HERE ****
         if (this._h !== v) {
             this._h = v;
+            this.damage();
         }
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -89,8 +93,10 @@ export class Region {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
-        if (!v && this._parent !== v)
+        if (this._parent !== v) {
             this._parent = v;
+            this.damage();
+        }
     }
     get imageLoc() { return this._imageLoc; }
     set imageLoc(v) {
@@ -118,8 +124,8 @@ export class Region {
     // coordinates of this object) should be considered "inside" or "over" this region.
     pick(localX, localY) {
         // **** YOUR CODE HERE ****
-        // **** Remove this, it's just here to make this compile as-is
-        return false;
+        return ((this.x <= localX && localX <= this.x + this.w) &&
+            (this.y <= localY && localY <= this.y + this.h));
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     // Draw the image for this region using the givn drawing context.  The context 
@@ -132,6 +138,8 @@ export class Region {
         // if we have a valid loaded image, draw it
         if (this.loaded && !this.loadError && this.image) {
             // **** YOUR CODE HERE ****
+            ctx.clearRect(0, 0, this.w, this.h);
+            ctx.drawImage(this.image, 0, 0);
         }
         //draw a frame indicating the (input) bounding box if requested
         if (showDebugFrame) {
@@ -146,7 +154,9 @@ export class Region {
     // has changed (e.g., the image or position has changed).  This passes this image
     // notification to its parent FSM which eventually results in a redraw.
     damage() {
+        var _a;
         // **** YOUR CODE HERE ****
+        (_a = this.parent) === null || _a === void 0 ? void 0 : _a.damage();
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     // Asynchronous method to start loading of the image for this region.  This 
