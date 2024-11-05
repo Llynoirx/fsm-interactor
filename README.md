@@ -111,7 +111,7 @@
     - [x] set x
     - [x] set y
     - [x] set parent
-    - [ ] damage(): update display for obj
+    - [x] damage(): update display for obj
     - [ ] draw()
     - [ ] pick(): determine list of regions in our controlling FSM
     - [ ] bookkeeping for displayRawEvent()
@@ -137,9 +137,9 @@
     - [x] set w
     - [x] set h
     - [x] set parent
-    - [ ] pick(): determine if position inside or over region
-    - [ ] draw()  
-    - [ ] damage() 
+    - [x] pick(): determine if position inside or over region
+    - [x] draw()  
+    - [x] damage() 
 * src/Transition.ts
     - class for single transition within FSM (eventspec, list of actions, state to move FSM to)
     - TODO: 

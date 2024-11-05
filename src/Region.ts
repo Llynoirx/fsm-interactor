@@ -239,9 +239,8 @@ export class Region {
     public pick(localX : number, localY : number) : boolean {
             
         // **** YOUR CODE HERE ****
-        
-        // **** Remove this, it's just here to make this compile as-is
-        return false;
+        return ((this.x<=localX && localX <= this.x+this.w) && 
+                (this.y<=localY && localY <= this.y+this.h));
     }
 
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
@@ -255,9 +254,9 @@ export class Region {
     public draw(ctx : CanvasRenderingContext2D, showDebugFrame : boolean = false) : void {
         // if we have a valid loaded image, draw it
         if (this.loaded && !this.loadError && this.image) {
-               
             // **** YOUR CODE HERE ****
-
+            ctx.clearRect(0,0 ,this.w, this.h);
+            ctx.drawImage(this.image, 0, 0);
         }
         
         //draw a frame indicating the (input) bounding box if requested
@@ -277,6 +276,7 @@ export class Region {
     public damage() {
             
         // **** YOUR CODE HERE ****
+        this.parent?.damage();
     }
 
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
