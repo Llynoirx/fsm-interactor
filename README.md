@@ -112,10 +112,10 @@
     - [x] set y
     - [x] set parent
     - [x] damage(): update display for obj
-    - [ ] draw()
-    - [ ] pick(): determine list of regions in our controlling FSM
-    - [ ] bookkeeping for displayRawEvent()
-    - [ ] displayRawEvent():  translate raw events into higher-levels ones formulated in terms of regions of FSM 
+    - [x] draw()
+    - [x] pick(): determine list of regions in our controlling FSM
+    - [x] bookkeeping for displayRawEvent()
+    - [x] displayRawEvent():  translate raw events into higher-levels ones formulated in terms of regions of FSM 
 * src/FSM.ts
   - FSM class: machine that consists of:
     1. list of regions: area (bounding box) within parent FSMInteractor, img
@@ -153,7 +153,7 @@
 * src/EventSpec.ts
   - class for objects that need specify event for FSM transition  
   - TODO: 
-    - [ ] bindRegion()
+    - [x] bindRegion()
     - [ ] match(): match against actual event
 * src/State.ts
     - class for FSM state obj (name, transition obj list)
