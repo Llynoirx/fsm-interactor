@@ -33,6 +33,12 @@ export class EventSpec {
             return;
         }
         // **** YOUR CODE HERE ****
+        for (let region of regionList) {
+            if (this.regionName === region.name) {
+                this._region = region;
+                return;
+            }
+        }
         // we didn't match any region, that's ok for some forms that don't need a region
         if (this.evtType === 'nevermatch')
             return;
@@ -48,7 +54,7 @@ export class EventSpec {
     // by an event type (evtType) and an optional associated region (regn).  If 
     // our region is undefined and region name is "*", we will match to any region.
     match(evtType, regn) {
-        // **** YOUR CODE HERE ****
+        // **** YOUR CODE HERE ***
         // **** Remove this: just here to get it to compile... ****
         return false;
     }

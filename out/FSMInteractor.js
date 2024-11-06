@@ -40,6 +40,10 @@ import { Err } from "./Err.js";
 //=================================================================== 
 export class FSMInteractor {
     constructor(fsm = undefined, x = 0, y = 0, parent) {
+        //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        // **** YOUR CODE HERE ****   
+        // You will need some persistent bookkeeping for dispatchRawEvent()
+        this.prevRegions = [];
         this._fsm = fsm;
         this._x = x;
         this._y = y;
@@ -78,7 +82,7 @@ export class FSMInteractor {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
-        if (this._parent !== v) {
+        if (!v && this._parent !== v) {
             this._parent = v;
             this.damage();
         }
@@ -108,6 +112,15 @@ export class FSMInteractor {
         if (!this.fsm)
             return;
         // **** YOUR CODE HERE ****
+        // for every region in FSM, we first save curr canvas to not affect subsequent drawings,
+        // move into and draw in the region's canvas (also draw debugging frame if showDebugging is true)
+        // then we restore the old canvas for future drawings
+        for (let region of this.fsm.regions) {
+            ctx.save();
+            ctx.translate(region.x, region.y);
+            region.draw(ctx, showDebugging);
+            ctx.restore();
+        }
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     // Perform a "pick" operation, to determine the list of regions in our controlling
@@ -124,11 +137,15 @@ export class FSMInteractor {
         if (!this.fsm)
             return pickList;
         // **** YOUR CODE HERE ****
+        //for every region in FSM, if region contains pt (localX, localY), add to pick list
+        for (let region of this.fsm.regions) {
+            if (region.pick(localX, localY))
+                pickList.push(region);
+        }
+        // picklist ordered in reverse (regions drawn later appear earlier in list)
+        pickList = pickList.reverse();
         return pickList;
     }
-    //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-    // **** YOUR CODE HERE ****   
-    // You will need some persistent bookkeeping for dispatchRawEvent()
     // Dispatch the given "raw" event by translating it into a series of higher-level
     // events which are formulated in terms of the regions of our FSM.  "Raw" events 
     // are based on simple actions with the input device(s) -- currently just press and
@@ -151,6 +168,45 @@ export class FSMInteractor {
         if (this.fsm === undefined)
             return;
         // **** YOUR CODE HERE ****
+        //determine which regions are currently affected by raw event (where ptr is)
+        const currRegions = this.pick(localX, localY);
+        // apply events based on what raw event it is
+        switch (what) {
+            case 'press': //raw event(s): press
+                for (let region of currRegions) {
+                    this.fsm.actOnEvent('press', region);
+                }
+                break;
+            case 'move': //raw event(s): exit:prev&!curr; enter:!prev&curr; move_inside:curr
+                // need to first deliver all exit events, then all enter events, etc 
+                // if ptr was previously in region but is currently not => exit
+                let exitRegions = this.prevRegions.filter((region) => !currRegions.includes(region));
+                for (let region of exitRegions) {
+                    this.fsm.actOnEvent('exit', region);
+                }
+                // if ptr was previously not in region but currently is => enter
+                let enterRegions = currRegions.filter((region) => !this.prevRegions.includes(region));
+                for (let region of enterRegions) {
+                    this.fsm.actOnEvent('enter', region);
+                }
+                // pick calls region.pick which ensures all currRegions are within bounds => has moved in region => move_inside        
+                for (let region of currRegions) {
+                    this.fsm.actOnEvent('move_inside', region);
+                }
+                break;
+            case 'release': //raw event(s): release:num-regions>0; release_none:num-regions==0
+                // release any of curr regions if there are any; otherwise release_none
+                if (currRegions.length > 0) {
+                    for (let region of currRegions) {
+                        this.fsm.actOnEvent('release', region);
+                    }
+                }
+                else
+                    this.fsm.actOnEvent('release_none');
+                break;
+            default:
+                Err.emit(`${what} does not exist`);
+        }
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     // Method to begin an asychnous load of a FSM_json object from a remotely loaded 

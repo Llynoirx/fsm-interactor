@@ -181,6 +181,7 @@ export class FSMInteractor {
         
         // **** YOUR CODE HERE ****   
         // You will need some persistent bookkeeping for dispatchRawEvent()
+        private prevRegions : Region[] = [];
 
     // Dispatch the given "raw" event by translating it into a series of higher-level
     // events which are formulated in terms of the regions of our FSM.  "Raw" events 
@@ -206,6 +207,44 @@ export class FSMInteractor {
         if (this.fsm === undefined) return;
 
         // **** YOUR CODE HERE ****
+        //determine which regions are currently affected by raw event (where ptr is)
+        const currRegions = this.pick(localX, localY);
+
+        // apply events based on what raw event it is
+        switch(what){
+            case 'press': //raw event(s): press
+                for (let region of currRegions) {
+                    this.fsm.actOnEvent('press', region);
+                }
+                break;
+            case 'move': //raw event(s): exit:prev&!curr; enter:!prev&curr; move_inside:curr
+                // need to first deliver all exit events, then all enter events, etc 
+                // if ptr was previously in region but is currently not => exit
+                let exitRegions = this.prevRegions.filter((region)=> !currRegions.includes(region))
+                for (let region of exitRegions){
+                    this.fsm.actOnEvent('exit', region);
+                } 
+                // if ptr was previously not in region but currently is => enter
+                let enterRegions = currRegions.filter((region) => !this.prevRegions.includes(region))
+                for (let region of enterRegions){
+                    this.fsm.actOnEvent('enter', region);
+                }
+                // pick calls region.pick which ensures all currRegions are within bounds => has moved in region => move_inside        
+                for (let region of currRegions){
+                    this.fsm.actOnEvent('move_inside', region);
+                }
+                break;
+            case 'release': //raw event(s): release:num-regions>0; release_none:num-regions==0
+                // release any of curr regions if there are any; otherwise release_none
+                if (currRegions.length > 0) {
+                    for (let region of currRegions) {
+                        this.fsm.actOnEvent('release', region);
+                    }
+                } else this.fsm.actOnEvent('release_none')
+                break;
+            default: 
+                Err.emit(`${what} does not exist`);
+        }
     }
 
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
