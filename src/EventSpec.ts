@@ -110,9 +110,22 @@ export class EventSpec {
     public match(evtType : EventType, regn? : Region) : boolean {
           
         // **** YOUR CODE HERE ***
-        // **** Remove this: just here to get it to compile... ****
+        //never match => always doesnt match
+        if(this.evtType === 'nevermatch') return false;
+
+        //any event type is okay => match
+        if(this.evtType === "any") return true;
+        
+        //if match event type and either region undefined and region name is * or region matches optional regn => match
+        if (this.evtType === evtType){
+            if ((!this.region && this.regionName === "*") ||(this.region === regn))
+                return true;
+        } 
+
         return false;
+        
     }
+
     
     //-------------------------------------------------------------------
     // Debugging Support
