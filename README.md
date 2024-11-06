@@ -128,7 +128,7 @@
 * src/Root.ts
     - class for root obj which manages connection w/ canvas and does other global tasks like redraws
     - TODO: 
-      - [ ] _redraw()
+      - [x] _redraw()
 * src/Region.ts
   - class for region objs {name, bounding-box, img(optional)}
   - TODOs
@@ -154,7 +154,7 @@
   - class for objects that need specify event for FSM transition  
   - TODO: 
     - [x] bindRegion()
-    - [ ] match(): match against actual event
+    - [x] match(): match against actual event
 * src/State.ts
     - class for FSM state obj (name, transition obj list)
 * src/Check.ts..
