@@ -84,8 +84,13 @@ export class Action {
         if (this._actType === 'none') return;
         
         // **** YOUR CODE HERE ****
-        if (!this._onRegion) Err.emit('no region to carry out action on')
-        else { //if there is region to act on, carryout action type
+        console.log("execute region", evtReg);
+        console.log("this", this);
+        if (!this._onRegion){
+            if (this._actType !== 'print' && this._actType !== 'print_event'){
+                Err.emit('no region to carry out action on')
+            }
+        } else { //if there is region to act on, carryout action type
             switch(this._actType) {
                 case 'set_image':
                     this._onRegion.imageLoc = this.param;

@@ -118,7 +118,7 @@ export class EventSpec {
         
         //if match event type and either region undefined and region name is * or region matches optional regn => match
         if (this.evtType === evtType){
-            if ((!this.region && this.regionName === "*") ||(this.region === regn))
+            if ((!this.region && this.regionName === "*") || (this.region === regn))
                 return true;
         } 
 

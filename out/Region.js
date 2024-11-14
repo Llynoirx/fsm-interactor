@@ -93,7 +93,7 @@ export class Region {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
-        if (this._parent !== v) {
+        if (!v && this._parent !== v) {
             this._parent = v;
             this.damage();
         }

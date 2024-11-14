@@ -140,6 +140,7 @@ export class FSM {
             // for the 1st transition matching event, we execute action,
             // move to indicated state, and no additional transitions considered
             if (trans.match(evtType, reg)) {
+                console.log("out Region", reg);
                 for (let action of trans.actions)
                     action.execute(evtType, reg);
                 this._currentState = trans.target;

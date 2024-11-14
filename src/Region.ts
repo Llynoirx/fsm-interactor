@@ -172,7 +172,7 @@ export class Region {
     public set parent(v : FSM | undefined) {
             
         // **** YOUR CODE HERE ****
-        if(this._parent!==v) {
+        if(!v && this._parent!==v) {
             this._parent = v;
             this.damage();
         }
