@@ -93,7 +93,7 @@ export class Region {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
-        if (!v && this._parent !== v) {
+        if (this._parent !== v) {
             this._parent = v;
             this.damage();
         }
@@ -124,8 +124,8 @@ export class Region {
     // coordinates of this object) should be considered "inside" or "over" this region.
     pick(localX, localY) {
         // **** YOUR CODE HERE ****
-        return ((this.x <= localX && localX <= this.x + this.w) &&
-            (this.y <= localY && localY <= this.y + this.h));
+        return ((0 <= localX && localX <= this.w) &&
+            (0 <= localY && localY <= this.h));
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     // Draw the image for this region using the givn drawing context.  The context 

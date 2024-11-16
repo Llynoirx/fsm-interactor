@@ -82,7 +82,7 @@ export class FSMInteractor {
     get parent() { return this._parent; }
     set parent(v) {
         // **** YOUR CODE HERE ****
-        if (!v && this._parent !== v) {
+        if (this._parent !== v) {
             this._parent = v;
             this.damage();
         }
@@ -137,13 +137,15 @@ export class FSMInteractor {
         if (!this.fsm)
             return pickList;
         // **** YOUR CODE HERE ****
-        //for every region in FSM, if region contains pt (localX, localY), add to pick list
-        for (let region of this.fsm.regions) {
-            if (region.pick(localX, localY))
+        //pick list is ordered in reverse regions drawing order so start at opp end
+        for (let i = this.fsm.regions.length - 1; i >= 0; i--) {
+            // if region contains pt (localX, localY), convert to child and add to pick list
+            let region = this.fsm.regions[i];
+            let childX = localX - region.x;
+            let childY = localY - region.y;
+            if (region.pick(childX, childY))
                 pickList.push(region);
         }
-        // picklist ordered in reverse (regions drawn later appear earlier in list)
-        pickList = pickList.reverse();
         return pickList;
     }
     // Dispatch the given "raw" event by translating it into a series of higher-level

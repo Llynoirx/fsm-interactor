@@ -32,31 +32,24 @@ export class Action {
         if (this._actType === 'none')
             return;
         // **** YOUR CODE HERE ****
-        console.log("execute region", evtReg);
-        console.log("this", this);
-        if (!this._onRegion) {
-            if (this._actType !== 'print' && this._actType !== 'print_event') {
-                Err.emit('no region to carry out action on');
-            }
-        }
-        else { //if there is region to act on, carryout action type
-            switch (this._actType) {
-                case 'set_image':
+        switch (this._actType) {
+            case 'set_image':
+                if (this._onRegion)
                     this._onRegion.imageLoc = this.param;
-                    break;
-                case 'clear_image':
+                break;
+            case 'clear_image':
+                if (this._onRegion)
                     this._onRegion.imageLoc = "";
-                    break;
-                case 'print':
-                    console.log(this.param);
-                    break;
-                case 'print_event':
-                    console.log(`${this.param}${evtType}, region:${evtReg === null || evtReg === void 0 ? void 0 : evtReg.name}`);
-                    break;
-                default:
-                    Err.emit(`${this._actType} does not exist`);
-                    break;
-            }
+                break;
+            case 'print':
+                console.log(this.param);
+                break;
+            case 'print_event':
+                console.log(`${this.param}${evtType}, region:${evtReg === null || evtReg === void 0 ? void 0 : evtReg.name}`);
+                break;
+            default:
+                Err.emit(`${this._actType} does not exist`);
+                break;
         }
     }
     //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .

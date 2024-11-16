@@ -104,9 +104,10 @@ export class FSM {
         // **** YOUR CODE HERE ****
         for (let state of this.states) {
             for (let trans of state.transitions) {
-                trans.bindTarget(this._states);
+                trans.bindTarget(this.states);
+                trans.onEvent.bindRegion(this.regions);
                 for (let action of trans.actions)
-                    action.bindRegion(this._regions);
+                    action.bindRegion(this.regions);
             }
         }
         // start state is the first one
@@ -140,7 +141,6 @@ export class FSM {
             // for the 1st transition matching event, we execute action,
             // move to indicated state, and no additional transitions considered
             if (trans.match(evtType, reg)) {
-                console.log("out Region", reg);
                 for (let action of trans.actions)
                     action.execute(evtType, reg);
                 this._currentState = trans.target;

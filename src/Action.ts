@@ -84,33 +84,25 @@ export class Action {
         if (this._actType === 'none') return;
         
         // **** YOUR CODE HERE ****
-        console.log("execute region", evtReg);
-        console.log("this", this);
-        if (!this._onRegion){
-            if (this._actType !== 'print' && this._actType !== 'print_event'){
-                Err.emit('no region to carry out action on')
-            }
-        } else { //if there is region to act on, carryout action type
-            switch(this._actType) {
-                case 'set_image':
-                    this._onRegion.imageLoc = this.param;
-                    break;
-                case 'clear_image':
-                    this._onRegion.imageLoc = "";
-                    break;
-                case 'print':
-                    console.log(this.param);
-                    break;
-                case 'print_event':
-                    console.log(`${this.param}${evtType}, region:${evtReg?.name}`);
-                    break;
-                default:
-                    Err.emit(`${this._actType} does not exist`);
-                    break;
-            }
-        }
-    }
-
+        switch(this._actType) {
+            case 'set_image':
+                if (this._onRegion) this._onRegion.imageLoc = this.param;
+                break;
+            case 'clear_image':
+                if (this._onRegion) this._onRegion.imageLoc = "";
+                break;
+            case 'print':
+                console.log(this.param);
+                break;
+            case 'print_event':
+                console.log(`${this.param}${evtType}, region:${evtReg?.name}`);
+                break;
+            default:
+                Err.emit(`${this._actType} does not exist`);
+                break;
+        }    
+    }                                                                                                                                        
+ 
      //. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     
     // Attempt to find the name listed for this region in the given list of regions
