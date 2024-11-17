@@ -49,26 +49,38 @@
   </ol>
 </details>
 
+
 <!-- PROJECT OVERVIEW -->
 ## Project Overview:
-<!-- [![Product Name Gif][product-screenshot]](https://example.com) -->
+![Project Walkthrough](https://github.com/Llynoirx/fsm-interactor/blob/main/proj3.gif)
 
 ### Background:
-*
-*
+* 05-431: Software Structure for UI -- Project 3
 
 
 ### Objectives:
-*
-*
+* Modify files to build FSM-based (Finite State Machine) Interactor objects, then test them in src/test_cases.ts. You must also create your own custom interactor object and test cases
 
 ### Features:
-*
-*
+<figure>
+  <img src="https://github.com/Llynoirx/fsm-interactor/blob/main/joystick.png" alt="Joystick Image" width="300"/><br>
+  <figcaption>Joystick Interactor</figcaption>
+</figure>
+<br>
+<br>
+<figure>
+  <img src="https://github.com/Llynoirx/fsm-interactor/blob/main/numbers.png" alt="Numbers Image" width="300"/><br>
+  <figcaption>Numbers Interactor</figcaption>
+</figure>
+<br>
+<br>
+<figure>
+  <img src="https://github.com/Llynoirx/fsm-interactor/blob/main/customForm.png" alt="Custom Form Interactor Image" width="300"/><br>
+  <figcaption>Custom Form Interactor w/ radio buttons, textbox, checkboxes, and rotary dial</figcaption>
+</figure>
 
 ### Built With:
-*
-*
+* Typescript
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,8 +137,10 @@
     - [x] _finalize(): Initially set up and connect various parts making up FSM (ie. looking up region, state names, linking/binding corresponding objs)
     - [x] reset(): Reset FSM to start state. 
     - [x] actOnEvent(): Cause FSM to act on given event (make one transition)
+* src/FormInteractor.ts
+    - Custom form interactor on course reflection including radio buttons, textbox, checkboxes, and rotary dial
 * src/Root.ts
-    - class for root obj which manages connection w/ canvas and does other global tasks like redraws
+    - class for root obj which manages connection w/ canvas, form interactor, and does other global tasks like redraws
     - TODO: 
       - [x] _redraw()
 * src/Region.ts
@@ -185,9 +199,10 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ## Related Projects 
-* 05-431 | SSUI Project 1 - Fitts Law Tester
-* 05-431 | SSUI Project 2 - UI Renderer
+* 05-431 | SSUI Project 1 - [Fitts Law Tester](https://github.com/Llynoirx/fitts-law-tester)
+* 05-431 | SSUI Project 2 - [UI Renderer](https://github.com/Llynoirx/ui-renderer)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
