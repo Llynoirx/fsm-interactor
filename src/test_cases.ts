@@ -83,7 +83,7 @@ function test4() {
 	root.formInteractor.createFormInteractor();
 	let fsmInt = new FSMInteractor(undefined, 0,0);
 	root.addChild(fsmInt);
-	fsmInt.startLoadFromJson("./fsm_json/test4.json");
+	// fsmInt.startLoadFromJson("./fsm_json/test4.json");
 }
 
 //-------------------------------------------------------------------
