@@ -20,6 +20,7 @@ export function runTests() {
     test1();
     test2();
     test3();
+    test4();
     console.log("Test is set up...");
 }
 //-------------------------------------------------------------------
@@ -56,6 +57,14 @@ function test3() {
     let fsmInt = new FSMInteractor(undefined, 400, 0);
     root.addChild(fsmInt);
     fsmInt.startLoadFromJson("./fsm_json/stick.json");
+}
+//. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+//Test Custom interactor: Form
+function test4() {
+    root.formInteractor.createFormInteractor();
+    let fsmInt = new FSMInteractor(undefined, 0, 0);
+    root.addChild(fsmInt);
+    fsmInt.startLoadFromJson("./fsm_json/test4.json");
 }
 //-------------------------------------------------------------------
 //# sourceMappingURL=test_cases.js.map

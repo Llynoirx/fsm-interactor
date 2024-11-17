@@ -1,4 +1,5 @@
 import { FSMInteractor } from "./FSMInteractor.js";
+import { FormInteractor } from "./FormInteractor.js";
 import { Region } from "./Region.js";
 import { Err } from "./Err.js";
 
@@ -10,12 +11,17 @@ import { Err } from "./Err.js";
 //===================================================================
 
 export class Root {
+    formInteractor: FormInteractor;
 
     constructor(canvasID : string) {
         this._children = [];
          // get the canvas object we will draw on and set our w/h to match that
          this._canvasContext = this._getCanvasContext(canvasID);
          this._owningCanvas  = this._canvasContext.canvas;
+
+         // add custom fsm interactor: form interactor
+         this.formInteractor = new FormInteractor(this); 
+         this.formInteractor.createFormInteractor();
 
          // setup canvas input callbacks
          this._setupCanvasInputHandlers();
@@ -267,6 +273,8 @@ export class Root {
 
         return ctx;
     }
+
  } // end class Root
+
 
 //===================================================================

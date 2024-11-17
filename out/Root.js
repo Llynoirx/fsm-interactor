@@ -1,3 +1,4 @@
+import { FormInteractor } from "./FormInteractor.js";
 //===================================================================
 // Class for a root object which manages the connection with with the underlying 
 // HTML canvas and performs other global tasks (like invoking redraws) for the system.
@@ -30,6 +31,9 @@ export class Root {
         // get the canvas object we will draw on and set our w/h to match that
         this._canvasContext = this._getCanvasContext(canvasID);
         this._owningCanvas = this._canvasContext.canvas;
+        // add custom fsm interactor: form interactor
+        this.formInteractor = new FormInteractor(this);
+        this.formInteractor.createFormInteractor();
         // setup canvas input callbacks
         this._setupCanvasInputHandlers();
     }
